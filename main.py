@@ -19,19 +19,30 @@ def load_deck():
     return deck
 
 
-def play_new_game(deck):
+def practice_card_vocab(card):
+  pass
+
+
+def practice_card_tenses(card):
+  pass
+
+
+def practice_deck(deck):
     score = 0
 
     for round in range (NUMBER_OF_ROUNDS):
       card = random.choice(deck["cards"])
-      # user plays with that card
+      if card["type"] == "vocab":
+        practice_card_vocab(card)
+      elif card["type"] == "tenses":
+        practice_card_tenses(card)
 
 
 def main():
     user_name = intro()
     chosen_deck = load_deck()
     input(f"Ready, {user_name}? Print enter to start! ")
-    play_new_game(chosen_deck)
+    practice_deck(chosen_deck)
 
 
 if __name__ == "__main__":
