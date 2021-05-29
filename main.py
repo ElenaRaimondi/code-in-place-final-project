@@ -11,9 +11,9 @@ score = 0
 
 
 def intro():
-    print("Benvenuto!")
+    print("Benvenuto!\n")
     user_name = input("Come ti chiami? ")
-    print("Rules")
+    print("\nRules\n")
     return user_name
 
 
@@ -30,11 +30,11 @@ def practice_card_vocab(card):
         guess = input(
             f"How do you say {card['native']} in your target language? ")
         if guess == card["target"]:
-            print("Bravo!")
+            print("Bravo!\n")
             score += POINTS_PER_GUESS
             return
         else:
-            print("That's not it!")
+            print("That's not it!\n")
 
     print(f"{card['native']} is {card['target']}. Better luck next time!")
 
@@ -47,11 +47,11 @@ def practice_tense(verb, tense):
         guess = input(f"What is the {name}? ")
 
         if guess == solution:
-            print("Bravo!")
+            print("Bravo!\n")
             score += POINTS_PER_GUESS
             return
         else:
-            print("That's not it!")
+            print("That's not it!\n")
 
     print(f"The {name} of {verb} is {solution}.")
 
@@ -68,7 +68,7 @@ def practice_deck(deck):
     score = 0
 
     for round in range(NUMBER_OF_ROUNDS):
-        print(f"Round: {round + 1}")
+        print(f"\n* * *\nRound: {round + 1}")
         card = random.choice(deck["cards"])
 
         if card["type"] == "vocab":
@@ -78,7 +78,7 @@ def practice_deck(deck):
 
         print(f"Your score is {score}.")
 
-    print(f"Your final score is {score}. Good job!")
+    print(f"\nYour final score is {score}. Good job!")
 
 
 def main():
