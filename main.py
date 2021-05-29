@@ -15,7 +15,7 @@ def intro():
 
 
 def load_deck():
-    with open(DECK_FILE_PATH) as deck_file:
+    with open(DECK_FILE_PATH, encoding="utf-8") as deck_file:
         deck = json.load(deck_file)
         return deck
 
