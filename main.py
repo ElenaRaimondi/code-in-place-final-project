@@ -5,6 +5,9 @@ import random
 DECK_FILE_PATH = "decks/italian_to_english.json"
 NUMBER_OF_ROUNDS = 3
 NUMBER_OF_ATTEMPTS = 2
+POINTS_PER_GUESS = 10
+
+score = 0
 
 
 def intro():
@@ -21,11 +24,14 @@ def load_deck():
 
 
 def practice_card_vocab(card):
+    global score
+
     for attempt in range(NUMBER_OF_ATTEMPTS):
         guess = input(
             f"How do you say {card['native']} in your target language? ")
         if guess == card["target"]:
             print("Bravo!")
+            score += POINTS_PER_GUESS
             return
         else:
             print("That's not it!")
@@ -34,14 +40,15 @@ def practice_card_vocab(card):
 
 
 def practice_tense(verb, tense):
-    # name = tense[0]
-    # solution = tense[1]
+    global score
+
     name, solution = tense
-    for attempt in range (NUMBER_OF_ATTEMPTS):
+    for attempt in range(NUMBER_OF_ATTEMPTS):
         guess = input(f"What is the {name}? ")
 
         if guess == solution:
             print("Bravo!")
+            score += POINTS_PER_GUESS
             return
         else:
             print("That's not it!")
@@ -57,6 +64,7 @@ def practice_card_tenses(card):
 
 
 def practice_deck(deck):
+    global score
     score = 0
 
     for round in range(NUMBER_OF_ROUNDS):
@@ -68,7 +76,9 @@ def practice_deck(deck):
         elif card["type"] == "tenses":
             practice_card_tenses(card)
 
-        print(f"Your final score is {score}. Good job!")
+        print(f"Your score is {score}.")
+
+    print(f"Your final score is {score}. Good job!")
 
 
 def main():
