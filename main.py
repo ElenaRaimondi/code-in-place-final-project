@@ -23,25 +23,45 @@ def load_deck():
 def practice_card_vocab(card):
     for attempt in range(NUMBER_OF_ATTEMPTS):
         guess = input(
-            f"How do`` you say {card['native']} in your target language? ")
+            f"How do you say {card['native']} in your target language? ")
         if guess == card["target"]:
             print("Bravo!")
             return
         else:
-            print("Try again!")
+            print("That's not it!")
 
     print(f"{card['native']} is {card['target']}. Better luck next time!")
 
+def practice_tense(verb, tense):
+    name = tense[0]
+    solution = tense[1]
+    for attempt in range (NUMBER_OF_ATTEMPTS):
+        guess = input(f"What is the {name}? ")
+
+        if guess == solution:
+            print("Bravo!")
+            return
+        else:
+            print("That's not it!")
+
+    print(f"The {name} of {verb} is {solution}.")
+
 
 def practice_card_tenses(card):
-    pass
+    verb = card["verb"]
+    print(f"The verb is {verb}")
+    for tense in card["tenses"]:
+        practice_tense(verb, tense)
+
 
 
 def practice_deck(deck):
     score = 0
 
     for round in range(NUMBER_OF_ROUNDS):
+        print(f"Round: {round + 1}")
         card = random.choice(deck["cards"])
+
         if card["type"] == "vocab":
             practice_card_vocab(card)
         elif card["type"] == "tenses":

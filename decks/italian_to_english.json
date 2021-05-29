@@ -13,6 +13,7 @@
     },
     {
       "type": "tenses",
+      "verb": "andare",
       "tenses": [
         ["presente", "io vado"],
         ["passato prossimo", "io sono andato"],
