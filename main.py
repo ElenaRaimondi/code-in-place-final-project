@@ -68,12 +68,15 @@ def practice_deck(deck):
         elif card["type"] == "tenses":
             practice_card_tenses(card)
 
+        print(f"Your final score is {score}. Good job!")
+
 
 def main():
     user_name = intro()
     chosen_deck = load_deck()
     input(f"Ready, {user_name}? Print enter to start! ")
     practice_deck(chosen_deck)
+    print("Arrivederci!")
 
 
 if __name__ == "__main__":
