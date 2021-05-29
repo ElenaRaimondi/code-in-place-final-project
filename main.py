@@ -32,9 +32,11 @@ def practice_card_vocab(card):
 
     print(f"{card['native']} is {card['target']}. Better luck next time!")
 
+
 def practice_tense(verb, tense):
-    name = tense[0]
-    solution = tense[1]
+    # name = tense[0]
+    # solution = tense[1]
+    name, solution = tense
     for attempt in range (NUMBER_OF_ATTEMPTS):
         guess = input(f"What is the {name}? ")
 
@@ -52,7 +54,6 @@ def practice_card_tenses(card):
     print(f"The verb is {verb}")
     for tense in card["tenses"]:
         practice_tense(verb, tense)
-
 
 
 def practice_deck(deck):
