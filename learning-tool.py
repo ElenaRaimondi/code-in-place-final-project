@@ -32,6 +32,21 @@ def check_correctness(guess, solution):
     return correctness >= FUZZ_RATIO
 
 
+def show_hint(solution):
+    hint = ""
+    for i in range(len(solution)):
+        character = solution[i]
+
+        if character == " ":
+            hint += " "
+        elif i % 2 == 1:
+            hint += "_"
+        else:
+            hint += character
+
+    print(f"Here is a hint: {hint}\n")
+
+
 def practice_card_vocab(card, target_language):
     global score
 
@@ -45,7 +60,9 @@ def practice_card_vocab(card, target_language):
             score += POINTS_PER_GUESS
             return
         else:
-            print("That's not it!\n")
+            print("That's not it!")
+            if attempt < (NUMBER_OF_ATTEMPTS - 1):
+                show_hint(solution)
 
     print(f"{card['native']} is {solution}. Better luck next time!")
 
@@ -63,14 +80,17 @@ def practice_tense(verb, tense):
             score += POINTS_PER_GUESS
             return
         else:
-            print("That's not it!\n")
+            print("That's not it!")
+            if attempt < (NUMBER_OF_ATTEMPTS - 1):
+                show_hint(solution)
 
     print(f"The {name} of {verb} is {solution}.")
 
 
 def practice_card_tenses(card, target_language):
     verb = card["verb"]
-    print(f"The verb in {target_language} is {verb}. Let's practice the tenses!")
+    print(
+        f"The verb in {target_language} is {verb}. Let's practice the tenses!")
     for tense in card["tenses"]:
         practice_tense(verb, tense)
 
@@ -91,11 +111,12 @@ def practice_deck():
         elif card["type"] == "tenses":
             practice_card_tenses(card, target_language)
 
-        print(f"Your score is {score}.")
+        print(f"\nYour score is {score}.")
 
     print(f"\nYour final score is {score}. Good job!")
 
-    more_practice = input("Would you like to practice more? If so, enter yes: ")
+    more_practice = input(
+        "Would you like to practice more? If so, enter yes: ")
     if more_practice == "yes":
         practice_deck()
 
