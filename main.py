@@ -63,10 +63,11 @@ def practice_card_tenses(card, target_language):
         practice_tense(verb, tense)
 
 
-def practice_deck(deck):
+def practice_deck():
     global score
     score = 0
 
+    deck = load_deck()
     for round in range(NUMBER_OF_ROUNDS):
         print(f"\n* * *\nRound: {round + 1}")
         card = random.choice(deck["cards"])
@@ -84,9 +85,8 @@ def practice_deck(deck):
 
 def main():
     user_name = intro()
-    chosen_deck = load_deck()
     input(f"Ready, {user_name}? Print enter to start! ")
-    practice_deck(chosen_deck)
+    practice_deck()
     print("Arrivederci!")
 
 
