@@ -64,7 +64,7 @@ def practice_card_vocab(card, target_language):
             if attempt < (NUMBER_OF_ATTEMPTS - 1):
                 show_hint(solution)
 
-    print(f"{card['native']} is {solution}. Better luck next time!")
+    print(f"{card['native']} is {solution}. Better luck next time!\n")
 
 
 def practice_tense(verb, tense):
@@ -84,7 +84,7 @@ def practice_tense(verb, tense):
             if attempt < (NUMBER_OF_ATTEMPTS - 1):
                 show_hint(solution)
 
-    print(f"The {name} of {verb} is {solution}.")
+    print(f"The {name} of {verb} is {solution}.\n")
 
 
 def practice_card_tenses(card, target_language):
@@ -93,6 +93,20 @@ def practice_card_tenses(card, target_language):
         f"The verb in {target_language} is {verb}. Let's practice the tenses!")
     for tense in card["tenses"]:
         practice_tense(verb, tense)
+
+
+def practice_card(card, deck):
+    target_language = deck["language"]["target"]
+
+    if card["type"] == "vocab":
+        practice_card_vocab(card, target_language)
+    elif card["type"] == "tenses":
+        practice_card_tenses(card, target_language)
+    
+    if "trivia" in card:
+        print(f"📚 Here is some trivia for you: {card['trivia']}\n")
+
+    print(f"Your score is {score}.")
 
 
 def practice_deck():
@@ -104,16 +118,9 @@ def practice_deck():
         print(f"\n* * *\nRound: {round + 1}")
         card = random.choice(deck["cards"])
         deck["cards"].remove(card)
-        target_language = deck["language"]["target"]
+        practice_card(card, deck)
 
-        if card["type"] == "vocab":
-            practice_card_vocab(card, target_language)
-        elif card["type"] == "tenses":
-            practice_card_tenses(card, target_language)
-
-        print(f"\nYour score is {score}.")
-
-    print(f"\nYour final score is {score}. Good job!")
+    print(f"\n🎉 Your final score is {score}. Good job!\n")
 
     more_practice = input(
         "Would you like to practice more? If so, enter yes: ")
