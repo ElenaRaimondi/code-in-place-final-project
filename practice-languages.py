@@ -4,7 +4,7 @@ from fuzzywuzzy import fuzz
 
 
 DECK_FILE_PATH = "decks/italian_to_english.json"
-NUMBER_OF_ROUNDS = 3
+NUMBER_OF_EXERCISES = 3
 NUMBER_OF_ATTEMPTS = 2
 POINTS_PER_GUESS = 10
 FUZZ_RATIO = 90
@@ -14,10 +14,10 @@ score = 0
 
 
 def intro():
-    print("\n\n\n\n* * *\n")
-    print("Benvenuto!\n")
-    user_name = input("Come ti chiami? ")
-    print("\nRules\n")
+    print("\n\n\n\n\n\n\n\n\n\n\n* * * *\n")
+    print("Welcome to your language learning practice!\n")
+    user_name = input("What's your name? ")
+    print(f"\n{user_name}, you are going to do {NUMBER_OF_EXERCISES} language exercises where you should guess the correct translation.\nYou have {NUMBER_OF_ATTEMPTS} attempts for each guess and each guess is worth {POINTS_PER_GUESS} points.\nKeep your eyes open for hints and trivia!\n")
     return user_name
 
 
@@ -102,7 +102,7 @@ def practice_card(card, deck):
         practice_card_vocab(card, target_language)
     elif card["type"] == "tenses":
         practice_card_tenses(card, target_language)
-    
+
     if "trivia" in card:
         print(f"📚 Here is some trivia for you: {card['trivia']}\n")
 
@@ -114,8 +114,8 @@ def practice_deck():
     score = 0
 
     deck = load_deck()
-    for round in range(NUMBER_OF_ROUNDS):
-        print(f"\n* * *\nRound: {round + 1}")
+    for exercise in range(NUMBER_OF_EXERCISES):
+        print(f"\n* * *\nExercise: {exercise + 1}")
         card = random.choice(deck["cards"])
         deck["cards"].remove(card)
         practice_card(card, deck)
@@ -132,7 +132,7 @@ def main():
     user_name = intro()
     input(f"Ready, {user_name}? Print enter to start! ")
     practice_deck()
-    print("Arrivederci!")
+    print("Goodbye!")
 
 
 if __name__ == "__main__":

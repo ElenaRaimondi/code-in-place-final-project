@@ -6,14 +6,19 @@
   "cards": [
     {
       "type": "vocab",
-      "native": "house",
-      "target": "casa",
-      "trivia": "Did you know that tiny cows live in tiny houses?"
+      "native": "thought",
+      "target": "pensiero",
+      "trivia": "Italians say 'Acqua in bocca!' to say 'Keep it to yourself' but it literally means 'Water in your mouth!'"
     },
     {
       "type": "vocab",
       "native": "cat",
       "target": "gatto"
+    },
+    {
+      "type": "vocab",
+      "native": "adventure",
+      "target": "avventura"
     },
     {
       "type": "tenses",
@@ -32,7 +37,7 @@
           "io andrò"
         ]
       ],
-      "trivia": "Did you know that magpies can live up to 100 years?"
+      "trivia": "Italians say 'In bocca al lupo!' to say 'Good luck' but it literally means 'In the mouth of the wolf!'"
     },
     {
       "type": "tenses",
@@ -69,7 +74,7 @@
           "io farò"
         ]
       ],
-      "trivia": "Did you know that magpies can live up to 100 years?"
+      "trivia": "When Italians say 'Boh!' and shrug their shouldes, they mean 'I don't know'."
     }
   ]
 }
