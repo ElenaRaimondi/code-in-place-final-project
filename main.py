@@ -23,12 +23,12 @@ def load_deck():
         return deck
 
 
-def practice_card_vocab(card):
+def practice_card_vocab(card, target_language):
     global score
 
     for attempt in range(NUMBER_OF_ATTEMPTS):
         guess = input(
-            f"How do you say {card['native']} in your target language? ")
+            f"How do you say {card['native']} in {target_language}? ")
         if guess == card["target"]:
             print("Bravo!\n")
             score += POINTS_PER_GUESS
@@ -56,9 +56,9 @@ def practice_tense(verb, tense):
     print(f"The {name} of {verb} is {solution}.")
 
 
-def practice_card_tenses(card):
+def practice_card_tenses(card, target_language):
     verb = card["verb"]
-    print(f"The verb is {verb}")
+    print(f"The verb in {target_language} is {verb}. Let's practice the tenses!")
     for tense in card["tenses"]:
         practice_tense(verb, tense)
 
@@ -70,11 +70,12 @@ def practice_deck(deck):
     for round in range(NUMBER_OF_ROUNDS):
         print(f"\n* * *\nRound: {round + 1}")
         card = random.choice(deck["cards"])
+        target_language = deck["language"]["target"]
 
         if card["type"] == "vocab":
-            practice_card_vocab(card)
+            practice_card_vocab(card, target_language)
         elif card["type"] == "tenses":
-            practice_card_tenses(card)
+            practice_card_tenses(card, target_language)
 
         print(f"Your score is {score}.")
 

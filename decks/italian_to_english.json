@@ -1,4 +1,8 @@
 {
+  "language": {
+    "target": "italian",
+    "native": "english"
+  },
   "cards": [
     {
       "type": "vocab",
@@ -15,9 +19,18 @@
       "type": "tenses",
       "verb": "andare",
       "tenses": [
-        ["presente", "io vado"],
-        ["passato prossimo", "io sono andato"],
-        ["futuro semplice", "io andrò"]        
+        [
+          "presente",
+          "io vado"
+        ],
+        [
+          "passato prossimo",
+          "io sono andato"
+        ],
+        [
+          "futuro semplice",
+          "io andrò"
+        ]
       ],
       "trivia": "Did you know that magpies can live up to 100 years?"
     }
