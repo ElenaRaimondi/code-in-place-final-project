@@ -1,16 +1,19 @@
 import json
 import random
+from fuzzywuzzy import fuzz
 
 
 DECK_FILE_PATH = "decks/italian_to_english.json"
 NUMBER_OF_ROUNDS = 3
 NUMBER_OF_ATTEMPTS = 2
 POINTS_PER_GUESS = 10
+FUZZ_RATIO = 80
 
 score = 0
 
 
 def intro():
+    print("\n\n\n\n* * *\n")
     print("Benvenuto!\n")
     user_name = input("Come ti chiami? ")
     print("\nRules\n")
@@ -23,20 +26,27 @@ def load_deck():
         return deck
 
 
+def check_correctness(guess, solution):
+    correctness = fuzz.ratio(guess, solution)
+    return correctness >= FUZZ_RATIO
+
+
 def practice_card_vocab(card, target_language):
     global score
 
     for attempt in range(NUMBER_OF_ATTEMPTS):
         guess = input(
             f"How do you say {card['native']} in {target_language}? ")
-        if guess == card["target"]:
+        solution = card["target"]
+        is_correct = check_correctness(guess, solution)
+        if is_correct:
             print("Bravo!\n")
             score += POINTS_PER_GUESS
             return
         else:
             print("That's not it!\n")
 
-    print(f"{card['native']} is {card['target']}. Better luck next time!")
+    print(f"{card['native']} is {solution}. Better luck next time!")
 
 
 def practice_tense(verb, tense):
@@ -46,7 +56,8 @@ def practice_tense(verb, tense):
     for attempt in range(NUMBER_OF_ATTEMPTS):
         guess = input(f"What is the {name}? ")
 
-        if guess == solution:
+        is_correct = check_correctness(guess, solution)
+        if is_correct:
             print("Bravo!\n")
             score += POINTS_PER_GUESS
             return
