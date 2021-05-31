@@ -83,14 +83,13 @@ def practice_deck():
     for round in range(NUMBER_OF_ROUNDS):
         print(f"\n* * *\nRound: {round + 1}")
         card = random.choice(deck["cards"])
+        deck["cards"].remove(card)
         target_language = deck["language"]["target"]
 
         if card["type"] == "vocab":
             practice_card_vocab(card, target_language)
         elif card["type"] == "tenses":
             practice_card_tenses(card, target_language)
-
-        
 
         print(f"Your score is {score}.")
 
