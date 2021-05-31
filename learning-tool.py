@@ -7,7 +7,8 @@ DECK_FILE_PATH = "decks/italian_to_english.json"
 NUMBER_OF_ROUNDS = 3
 NUMBER_OF_ATTEMPTS = 2
 POINTS_PER_GUESS = 10
-FUZZ_RATIO = 80
+FUZZ_RATIO = 90
+
 
 score = 0
 
@@ -88,6 +89,8 @@ def practice_deck():
             practice_card_vocab(card, target_language)
         elif card["type"] == "tenses":
             practice_card_tenses(card, target_language)
+
+        
 
         print(f"Your score is {score}.")
 
