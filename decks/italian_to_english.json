@@ -33,6 +33,43 @@
         ]
       ],
       "trivia": "Did you know that magpies can live up to 100 years?"
+    },
+    {
+      "type": "tenses",
+      "verb": "dare",
+      "tenses": [
+        [
+          "presente",
+          "io do"
+        ],
+        [
+          "passato prossimo",
+          "io ho dato"
+        ],
+        [
+          "futuro semplice",
+          "io darò"
+        ]
+      ]
+    },
+    {
+      "type": "tenses",
+      "verb": "fare",
+      "tenses": [
+        [
+          "presente",
+          "io faccio"
+        ],
+        [
+          "passato prossimo",
+          "io ho fatto"
+        ],
+        [
+          "futuro semplice",
+          "io farò"
+        ]
+      ],
+      "trivia": "Did you know that magpies can live up to 100 years?"
     }
   ]
 }
