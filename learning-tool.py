@@ -95,6 +95,10 @@ def practice_deck():
 
     print(f"\nYour final score is {score}. Good job!")
 
+    more_practice = input("Would you like to practice more? If so, enter yes: ")
+    if more_practice == "yes":
+        practice_deck()
+
 
 def main():
     user_name = intro()
